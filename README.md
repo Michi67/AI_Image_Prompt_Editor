@@ -3,9 +3,10 @@
 ## Getting Started
 
 **First, open AI_Image_Prompt_Editor.html, then click the "Load Keywords" button to load the Initial_setting_keywords file.**
+
 You can select the strength of keywords, change the order, and display in multiple languages.
-You can save the keywords and display presets you use,
-so you can change the situation while maintaining the basic settings.
+
+You can save the keywords and display presets you use,so you can change the situation while maintaining the basic settings.
 
 <img width="2369" height="1734" alt="sample2" src="https://github.com/user-attachments/assets/50eaa537-9275-47ac-9461-ad2804502fea" />
 
