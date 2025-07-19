@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+  AI Image Prompt Editor
+  Copyright (c) 2025 Michihiro.Takagi
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Prompt Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- SortableJS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>AI Image Prompt Editor</h1>
+  </header>
+  <main>
+    <section id="selection-area">
+      <div class="file-ops-container">
+        <button id="load-keywords-btn" class="file-op-btn">Load Keywords</button>
+        <input type="file" id="keywords-file-input" accept="application/json" style="display:none;">
+        <button id="save-keywords-btn" class="file-op-btn">Save Keywords</button>
+        <button id="load-presets-btn" class="file-op-btn">Load Presets</button>
+        <input type="file" id="presets-file-input" accept="application/json" style="display:none;">
+        <button id="save-presets-btn" class="file-op-btn">Save Presets</button>
+      </div>
+      <div id="prompt-selection-area">
+        <h2 style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <span>Prompt Keywords</span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <label class="desc-toggle-label">
+              <input type="checkbox" id="show-desc-checkbox" title="Show descriptions">
+              <span>Show desc</span>
+            </label>
+            <button id="add-keyword-btn" class="add-keyword-btn small-btn" title="Add Keyword">Add</button>
+            <button id="del-keyword-btn" class="del-keyword-btn small-btn" title="Delete Keywords">Del</button>
+          </div>
+        </h2>
+        <!-- Prompt keyword list will be generated dynamically -->
+      </div>
+      <!-- キーワード追加モーダル -->
+      <div id="add-keyword-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-drag-handle">Add Keyword</div>
+          <span class="close-modal" id="close-add-keyword-modal">&times;</span>
+          <form id="add-keyword-form">
+            <label><span>Type:</span>
+              <select id="add-keyword-type">
+                <option value="prompt">prompt</option>
+                <option value="negative_prompt">negative prompt</option>
+              </select>
+            </label><br/>
+            <label><span>Category:</span>
+              <input type="text" id="add-keyword-category" list="add-keyword-category-list" autocomplete="off" style="width: 100%; box-sizing: border-box;">
+              <datalist id="add-keyword-category-list"></datalist>
+            </label><br/>
+            <label><span>Description:</span>
+              <textarea id="add-keyword-description" rows="3" style="resize:none;"></textarea>
+            </label><br/>
+            <label><span>Key:</span>
+              <textarea id="add-keyword-key" rows="3" style="resize:none;"></textarea>
+            </label><br/>
+            <label><span>Desc:</span>
+              <textarea id="add-keyword-desc" rows="3" style="resize:none;"></textarea>
+            </label><br/>
+            <label><span>Count:</span>
+              <select id="add-keyword-count" size="5">
+                <!-- 1～20をoptionで -->
+              </select>
+            </label><br/>
+            <button type="submit" id="add-keyword-submit">Add</button>
+          </form>
+        </div>
+      </div>
+      <div id="negative-selection-area">
+        <h2>Negative Prompt Keywords</h2>
+        <!-- Negative prompt keyword list will be generated dynamically -->
+      </div>
+      <!-- キーワード削除モーダル -->
+      <div id="del-keyword-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-drag-handle">
+            <span>Delete Keywords</span>
+            <span class="close-modal" id="close-del-modal">&times;</span>
+          </div>
+          <form id="del-keyword-form">
+            <label>
+              Type:
+              <select id="del-keyword-type" required>
+                <option value="">Select type...</option>
+                <option value="prompt">Prompt</option>
+                <option value="negative_prompt">Negative Prompt</option>
+              </select>
+            </label>
+            <label>
+              Category:
+              <select id="del-keyword-category" required>
+                <option value="">Select category...</option>
+              </select>
+            </label>
+            <div id="del-keyword-list" class="keyword-selection-area">
+              <!-- キーワードリストがここに動的に追加される -->
+            </div>
+            <div class="modal-buttons">
+              <button type="button" id="del-keyword-submit">Del</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- 削除確認モーダル -->
+      <div id="delete-confirm-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-drag-handle">
+            <span>Confirm Deletion</span>
+            <span class="close-modal" id="close-confirm-modal">&times;</span>
+          </div>
+          <div id="delete-confirm-message">
+            <!-- 削除確認メッセージがここに表示される -->
+          </div>
+          <div class="modal-buttons">
+            <button type="button" id="confirm-delete-btn">Yes</button>
+            <button type="button" id="cancel-delete-btn">No</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="output-area">
+      <div class="support-message">
+        <p>If you like this tool: <a href="https://ko-fi.com/sia0621" target="_blank" rel="noopener noreferrer">https://ko-fi.com/sia0621</a></p>
+      </div>
+      <h2>Prompt List</h2>
+      <ul class="sortable-list" id="prompt-list">
+        <!-- Selected prompt keywords will be added here -->
+      </ul>
+      <div class="output-controls">
+        <button id="copy-prompt-btn">Copy</button>
+        <button id="reset-prompt-btn">Reset</button>
+      </div>
+      <textarea id="prompt-output" rows="4" readonly></textarea>
+      <h2>Negative Prompt List</h2>
+      <ul class="sortable-list" id="negative-list">
+        <!-- Selected negative prompt keywords will be added here -->
+      </ul>
+      <div class="output-controls">
+        <button id="copy-negative-btn">Copy</button>
+        <button id="reset-negative-btn">Reset</button>
+      </div>
+      <textarea id="negative-output" rows="4" readonly></textarea>
+    </section>
+  </main>
+  <footer>
+    <small>&copy; 2025 Michihiro.Takagi | v1.0.0</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,143 @@
+{
+  "prompt": [
+    {
+      "category": "【System】",
+      "description": "System settings",
+      "keywords": [
+        { "key": "filter", "desc": "With/without filter" }
+      ]
+    },
+    {
+      "category": "【Quality & Detail】",
+      "description": "Specifies the quality of the generated image. It is recommended to place this at the beginning.",
+      "keywords": [
+        { "key": "masterpiece", "desc": "Masterpiece" },
+        { "key": "best quality", "desc": "Best quality" },
+        { "key": "ultra-detailed", "desc": "Ultra-detailed" },
+        { "key": "8k", "desc": "8K resolution" },
+        { "key": "absurdres", "desc": "Absurdly high resolution" }
+      ]
+    },
+    {
+      "category": "【Subject】",
+      "description": "Describes the central person, object, or scenery of the image.",
+      "keywords": [
+        { "key": "1girl", "desc": "One girl" },
+        { "key": "1boy", "desc": "One boy" },
+        { "key": "solo", "desc": "Solo" },
+        { "key": "a cat", "desc": "A cat" },
+        { "key": "a dog", "desc": "A dog" },
+        { "key": "dragon", "desc": "Dragon" },
+        { "key": "futuristic city", "desc": "Futuristic city" }
+      ]
+    },
+    {
+      "category": "【Subject Details】",
+      "description": "Describes specific features of the subject, such as hair color, eye color, clothing, and expression.",
+      "keywords": [
+        { "key": "silver hair", "desc": "Silver hair" },
+        { "key": "blonde hair", "desc": "Blonde hair" },
+        { "key": "blue eyes", "desc": "Blue eyes" },
+        { "key": "red eyes", "desc": "Red eyes" },
+        { "key": "smiling", "desc": "Smiling" },
+        { "key": "crying", "desc": "Crying" },
+        { "key": "wearing a blue dress", "desc": "Wearing a blue dress" },
+        { "key": "wearing a jacket", "desc": "Wearing a jacket" }
+      ]
+    },
+    {
+      "category": "【Composition & Angle】",
+      "description": "Specifies the viewpoint and framing from which to draw the subject.",
+      "keywords": [
+        { "key": "upper body", "desc": "Upper body" },
+        { "key": "full body", "desc": "Full body" },
+        { "key": "close-up", "desc": "Close-up" },
+        { "key": "cowboy shot", "desc": "Cowboy shot" },
+        { "key": "from above", "desc": "From above" },
+        { "key": "from below", "desc": "From below" },
+        { "key": "wide shot", "desc": "Wide shot" }
+      ]
+    },
+    {
+      "category": "【Art Style】",
+      "description": "Specifies the overall style of the image.",
+      "keywords": [
+        { "key": "photo-realistic", "desc": "Photo-realistic" },
+        { "key": "anime style", "desc": "Anime style" },
+        { "key": "watercolor painting", "desc": "Watercolor painting" },
+        { "key": "oil painting", "desc": "Oil painting" },
+        { "key": "pixel art", "desc": "Pixel art" },
+        { "key": "concept art", "desc": "Concept art" }
+      ]
+    },
+    {
+      "category": "【Lighting & Atmosphere】",
+      "description": "Specifies the lighting and overall atmosphere.",
+      "keywords": [
+        { "key": "cinematic lighting", "desc": "Cinematic lighting" },
+        { "key": "dramatic light", "desc": "Dramatic light" },
+        { "key": "soft lighting", "desc": "Soft lighting" },
+        { "key": "moody", "desc": "Moody" },
+        { "key": "epic", "desc": "Epic" },
+        { "key": "volumetric lighting", "desc": "Volumetric lighting" }
+      ]
+    },
+    {
+      "category": "【Background】",
+      "description": "Describes the background of the subject.",
+      "keywords": [
+        { "key": "in a fantasy forest", "desc": "In a fantasy forest" },
+        { "key": "on a city street at night", "desc": "On a city street at night" },
+        { "key": "simple background", "desc": "Simple background" },
+        { "key": "white background", "desc": "White background" }
+      ]
+    },
+    {
+      "category": "【Color Tone】",
+      "description": "Specifies the overall color tone of the image.",
+      "keywords": [
+        { "key": "vibrant colors", "desc": "Vibrant colors" },
+        { "key": "monochromatic", "desc": "Monochromatic" },
+        { "key": "pastel colors", "desc": "Pastel colors" },
+        { "key": "cool color tone", "desc": "Cool color tone" },
+        { "key": "warm color tone", "desc": "Warm color tone" }
+      ]
+    }
+  ],
+  "negative_prompt": [
+    {
+      "category": "【Low Quality Elements】",
+      "description": "Excludes common low-quality elements.",
+      "keywords": [
+        { "key": "low quality", "desc": "Low quality" },
+        { "key": "worst quality", "desc": "Worst quality" },
+        { "key": "normal quality", "desc": "Normal quality" },
+        { "key": "jpeg artifacts", "desc": "JPEG artifacts" },
+        { "key": "blurry", "desc": "Blurry" }
+      ]
+    },
+    {
+      "category": "【Unwanted Objects】",
+      "description": "Excludes unwanted objects such as text and signatures.",
+      "keywords": [
+        { "key": "text", "desc": "Text" },
+        { "key": "watermark", "desc": "Watermark" },
+        { "key": "signature", "desc": "Signature" },
+        { "key": "username", "desc": "Username" }
+      ]
+    },
+    {
+      "category": "【Anatomical Deformities】",
+      "description": "Prevents malformations of hands, fingers, and body structure.",
+      "keywords": [
+        { "key": "poorly drawn hands", "desc": "Poorly drawn hands" },
+        { "key": "extra fingers", "desc": "Extra fingers" },
+        { "key": "fewer fingers", "desc": "Fewer fingers" },
+        { "key": "extra limbs", "desc": "Extra limbs" },
+        { "key": "ugly", "desc": "Ugly" },
+        { "key": "deformed", "desc": "Deformed" },
+        { "key": "disfigured", "desc": "Disfigured" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "prompt": [
+    {
+      "category": "【システム】",
+      "description": "システム設定",
+      "keywords": [
+        { "key": "filter", "desc": "フィルタ有無" }
+      ]
+    },
+	{
+      "category": "【品質・詳細度】",
+      "description": "生成される画像の品質を指定します。最初に記述することが推奨されます。",
+      "keywords": [
+        { "key": "masterpiece", "desc": "傑作" },
+        { "key": "best quality", "desc": "最高の品質" },
+        { "key": "ultra-detailed", "desc": "超詳細" },
+        { "key": "8k", "desc": "8K解像度" },
+        { "key": "absurdres", "desc": "非現実的な高解像度" }
+      ]
+    },
+    {
+      "category": "【主題】",
+      "description": "画像の中心となる人、物、風景などを記述します。",
+      "keywords": [
+        { "key": "1girl", "desc": "一人の少女" },
+        { "key": "1boy", "desc": "一人の少年" },
+        { "key": "solo", "desc": "単独" },
+        { "key": "a cat", "desc": "一匹の猫" },
+        { "key": "a dog", "desc": "一匹の犬" },
+        { "key": "dragon", "desc": "ドラゴン" },
+        { "key": "futuristic city", "desc": "未来都市" }
+      ]
+    },
+    {
+      "category": "【主題の詳細】",
+      "description": "髪の色、目の色、服装、表情など、主題の具体的な特徴を記述します。",
+      "keywords": [
+        { "key": "silver hair", "desc": "銀髪" },
+        { "key": "blonde hair", "desc": "金髪" },
+        { "key": "blue eyes", "desc": "青い目" },
+        { "key": "red eyes", "desc": "赤い目" },
+        { "key": "smiling", "desc": "微笑み" },
+        { "key": "crying", "desc": "泣き顔" },
+        { "key": "wearing a blue dress", "desc": "青いドレス着用" },
+        { "key": "wearing a jacket", "desc": "ジャケット着用" }
+      ]
+    },
+    {
+      "category": "【構図・アングル】",
+      "description": "主題をどの視点から、どの範囲で描くかを指定します。",
+      "keywords": [
+        { "key": "upper body", "desc": "上半身" },
+        { "key": "full body", "desc": "全身" },
+        { "key": "close-up", "desc": "クローズアップ" },
+        { "key": "cowboy shot", "desc": "腰から上" },
+        { "key": "from above", "desc": "上からの視点" },
+        { "key": "from below", "desc": "下からの視点" },
+        { "key": "wide shot", "desc": "広角" }
+      ]
+    },
+    {
+      "category": "【画風・スタイル】",
+      "description": "画像の全体的なスタイルを指定します。",
+      "keywords": [
+        { "key": "photo-realistic", "desc": "写実的" },
+        { "key": "anime style", "desc": "アニメ調" },
+        { "key": "watercolor painting", "desc": "水彩画" },
+        { "key": "oil painting", "desc": "油絵" },
+        { "key": "pixel art", "desc": "ピクセルアート" },
+        { "key": "concept art", "desc": "コンセプトアート" }
+      ]
+    },
+    {
+      "category": "【照明・雰囲気】",
+      "description": "光の当たり方や、全体の雰囲気を指定します。",
+      "keywords": [
+        { "key": "cinematic lighting", "desc": "映画的な照明" },
+        { "key": "dramatic light", "desc": "ドラマチックな光" },
+        { "key": "soft lighting", "desc": "柔らかい光" },
+        { "key": "moody", "desc": "ムードのある" },
+        { "key": "epic", "desc": "壮大な" },
+        { "key": "volumetric lighting", "desc": " объемное освещение" }
+      ]
+    },
+    {
+      "category": "【背景】",
+      "description": "主題の背景を描写します。",
+      "keywords": [
+        { "key": "in a fantasy forest", "desc": "幻想的な森の中" },
+        { "key": "on a city street at night", "desc": "夜の街の通り" },
+        { "key": "simple background", "desc": "シンプルな背景" },
+        { "key": "white background", "desc": "白い背景" }
+      ]
+    },
+    {
+      "category": "【色調】",
+      "description": "画像全体の色のトーンを指定します。",
+      "keywords": [
+        { "key": "vibrant colors", "desc": "鮮やかな色" },
+        { "key": "monochromatic", "desc": "モノクロ" },
+        { "key": "pastel colors", "desc": "パステルカラー" },
+        { "key": "cool color tone", "desc": "寒色系" },
+        { "key": "warm color tone", "desc": "暖色系" }
+      ]
+    }
+  ],
+  "negative_prompt": [
+    {
+      "category": "【低品質要素】",
+      "description": "一般的な低品質要素を除外します。",
+      "keywords": [
+        { "key": "low quality", "desc": "低品質" },
+        { "key": "worst quality", "desc": "最悪の品質" },
+        { "key": "normal quality", "desc": "普通の品質" },
+        { "key": "jpeg artifacts", "desc": "JPEGノイズ" },
+        { "key": "blurry", "desc": "ぼやけ" }
+      ]
+    },
+    {
+      "category": "【不要なオブジェクト】",
+      "description": "テキストや署名など、不要なオブジェクトを除外します。",
+      "keywords": [
+        { "key": "text", "desc": "テキスト" },
+        { "key": "watermark", "desc": "ウォーターマーク" },
+        { "key": "signature", "desc": "署名" },
+        { "key": "username", "desc": "ユーザー名" }
+      ]
+    },
+    {
+      "category": "【破綻・奇形要素】",
+      "description": "手や指、体の構造の破綻を防ぎます。",
+      "keywords": [
+        { "key": "poorly drawn hands", "desc": "下手な手" },
+        { "key": "extra fingers", "desc": "多い指" },
+        { "key": "fewer fingers", "desc": "少ない指" },
+        { "key": "extra limbs", "desc": "余分な四肢" },
+        { "key": "ugly", "desc": "醜い" },
+        { "key": "deformed", "desc": "奇形" },
+        { "key": "disfigured", "desc": "見苦しい" }
+      ]
+    }
+  ]
+} 
