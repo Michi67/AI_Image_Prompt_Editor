@@ -14,6 +14,10 @@ You can save the keywords and display presets you use,so you can change the situ
 
 This file contains basic keyword data that is required to use the tool.
 
+<img width="2339" height="1702" alt="sample3" src="https://github.com/user-attachments/assets/000b913d-d957-4b71-88d1-de09d40c13f8" />
+
+Keywords and desc can be updated by double clicking
+
 ## Overview
 AI Image Prompt Editor is a comprehensive tool for creating and managing AI image generation prompts. It features advanced keyword management, emphasis controls, preset saving/loading, and drag-and-drop category organization.
 
