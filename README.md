@@ -3,6 +3,7 @@
 ## Getting Started
 
 **First, open AI_Image_Prompt_Editor.html, then click the "Load Keywords" button to load the Initial_setting_keywords file.**
+<img width="2422" height="1732" alt="sample1" src="https://github.com/user-attachments/assets/7085b16b-7462-4eab-9a48-6d57b86d9264" />
 
 This file contains basic keyword data that is required to use the tool.
 
