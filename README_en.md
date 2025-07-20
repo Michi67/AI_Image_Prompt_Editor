@@ -159,6 +159,25 @@ AI Image Prompt Editor is a comprehensive tool for creating and managing AI imag
 - Keyword selection state and description display settings are also included when saving
 - Preset files serve as additional backups of your configurations
 
+## Release Notes
+
+### Version 1.1.0 (2025-01-XX)
+- **New Feature**: Added Sort functionality for Prompt List and Negative Prompt List
+  - Sort buttons added next to Reset buttons
+  - Keywords are sorted by category order in the selection area
+  - Same category keywords are sorted alphabetically
+- **UI Improvements**: Unified button widths for better visual consistency
+  - Copy, Reset, and Sort buttons now have consistent 80px width
+  - Add and Del buttons now have consistent 50px width
+- **Enhanced User Experience**: Improved visual alignment and button layout
+
+### Version 1.0.0 (2025-01-XX)
+- Initial release with core functionality
+- Keyword management with categories and descriptions
+- Emphasis control system
+- Preset saving and loading
+- Drag-and-drop category organization
+
 ## Technical Notes
 
 ### Browser Compatibility

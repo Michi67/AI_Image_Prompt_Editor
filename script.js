@@ -30,8 +30,10 @@ const promptOutput = document.getElementById('prompt-output');
 const negativeOutput = document.getElementById('negative-output');
 const copyPromptBtn = document.getElementById('copy-prompt-btn');
 const resetPromptBtn = document.getElementById('reset-prompt-btn');
+const sortPromptBtn = document.getElementById('sort-prompt-btn');
 const copyNegativeBtn = document.getElementById('copy-negative-btn');
 const resetNegativeBtn = document.getElementById('reset-negative-btn');
+const sortNegativeBtn = document.getElementById('sort-negative-btn');
 const promptSelectionArea = document.getElementById('prompt-selection-area');
 const negativeSelectionArea = document.getElementById('negative-selection-area');
 
@@ -559,6 +561,9 @@ resetPromptBtn.addEventListener('click', () => {
   document.querySelectorAll('#selection-area input[type="checkbox"][data-type="prompt"]').forEach(cb => cb.checked = false);
   renderOutputLists();
 });
+sortPromptBtn.addEventListener('click', () => {
+  sortKeywordsByCategory('prompt');
+});
 copyNegativeBtn.addEventListener('click', () => {
   negativeOutput.select();
   document.execCommand('copy');
@@ -571,6 +576,9 @@ resetNegativeBtn.addEventListener('click', () => {
   selectedNegativeKeywords = [];
   document.querySelectorAll('#selection-area input[type="checkbox"][data-type="negative_prompt"]').forEach(cb => cb.checked = false);
   renderOutputLists();
+});
+sortNegativeBtn.addEventListener('click', () => {
+  sortKeywordsByCategory('negative_prompt');
 });
 
 // 新しいUI要素の取得
@@ -1527,6 +1535,39 @@ function updateCategoryOrder(type) {
     
     window._keywordsDataCache[type] = reorderedData;
   }
+}
+
+// キーワードリストをカテゴリ順でソート
+function sortKeywordsByCategory(type) {
+  if (!window._keywordsDataCache || !window._keywordsDataCache[type]) {
+    return;
+  }
+  
+  const categoryOrder = window._keywordsDataCache[type].map(cat => cat.category);
+  const keywords = type === 'prompt' ? selectedPromptKeywords : selectedNegativeKeywords;
+  
+  // カテゴリの順序に基づいてソート
+  const sortedKeywords = keywords.sort((a, b) => {
+    const aIndex = categoryOrder.indexOf(a.category);
+    const bIndex = categoryOrder.indexOf(b.category);
+    
+    // カテゴリが同じ場合は、キーワード名でソート
+    if (aIndex === bIndex) {
+      return a.key.localeCompare(b.key);
+    }
+    
+    return aIndex - bIndex;
+  });
+  
+  // ソートされたキーワードを適用
+  if (type === 'prompt') {
+    selectedPromptKeywords = sortedKeywords;
+  } else {
+    selectedNegativeKeywords = sortedKeywords;
+  }
+  
+  // リストを再描画
+  renderOutputLists();
 }
 
 // desc表示切り替え機能
